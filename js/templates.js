@@ -39,10 +39,10 @@ function templateDetailedPokemonPopup(pokemonIndex, bigPokemonName, backgroundCo
                 </div>
                 <div class="pokemon-sections">
                     <ul>
-                        <li class="active" onclick="aboutCurrentPokemon(${pokemonIndex})"><a href="#about">About</li>
-                        <li><a href="#stats">Stats</li>
-                        <li><a href="#evolution">Evolution</li>
-                        <li><a href="#moves">Moves</li>
+                        <li class="active"><a href="#about">About</a></li>
+                        <li><a href="#stats">Stats</a></li>
+                        <li><a href="#evolution">Evolution</a></li>
+                        <li><a href="#moves">Moves</a></li>
                     </ul>
                 </div>
                 <div id="page-mask">
@@ -53,10 +53,11 @@ function templateDetailedPokemonPopup(pokemonIndex, bigPokemonName, backgroundCo
 }
 
 
-function templateAboutCurrentPokemon(pokemonDescription, pokemonHeight) {
+function templateAboutCurrentPokemon(pokemonDescription, pokemonHeight, pokemonWeight) {
     return /*html*/`
-    <div>
-        <span>${pokemonDescription}</span>
-        <span>${pokemonHeight}</span>
+    <div class="about-section">
+        <span>${pokemonDescription.replace('\f', ' ')}</span><br>
+        <span>Height: ${pokemonHeight.toFixed(2).replace('.', ',')} m</span><br>
+        <span>${pokemonWeight} kg</span><br>
     </div>`
 }

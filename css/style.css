@@ -270,6 +270,8 @@ header span a img {
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
+    margin: 0;
+    padding: 0;
     
 }
 
@@ -288,6 +290,16 @@ header span a img {
     border-bottom: 3px solid white;
 }
 
+.about-section {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color-main);
+}
+
+.about-section span {
+    text-decoration: none !important;
+    text-underline-offset: unset;
+}
 
 
 
