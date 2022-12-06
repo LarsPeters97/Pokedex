@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/pokemon-types.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="icon" href="./img/pokeball.png" type="image/x-icon">
+
+    <title>Pokedex</title>
+</head>
+
+<body onload="init()">
+
+    <header>
+        <span>
+            <a href="index.html">
+                <h1><i>Pokedex</i></h1><img src="./img/pokeballs.png">
+            </a>
+        </span>
+
+        <form onsubmit="getSearchTerm(); return false" class="input-group">
+            <input type="text" placeholder="Suche..." id="search" autocomplete="off" required minlength="3"
+                class="form-control">
+            <button class="btn btn-outline-secondary" type="submit" id="search-button"><img src="./img/search.png"
+                    alt="Suche"></button>
+            <button class="btn btn-outline-secondary" type="button"><img src="./img/delete.png" alt="Löschen"></button>
+        </form>
+
+    </header>
+    <div class="pokemon-cards-small-area" id="small-pokemon-containers">
+    </div>
+    <div id="popup">
+    </div>
+    <div class="center">
+        <div class="ring">
+        </div>
+        <span class="loading">loading...
+        </span>
+    </div>
+    <footer>
+        <a href="index.html">Seite neu laden</a><a href="impressum.html">Impressum</a><a
+            href="datenschutz.html">Datenschutz</a>
+    </footer>
+
+</body>
+<script defer src="./js/script.js"></script>
+<script defer src="./js/templates.js"></script>
+
+</html>

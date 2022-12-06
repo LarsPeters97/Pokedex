@@ -1,0 +1,187 @@
+:root {
+    --bug-background-color: hsl(130, 55%, 69%);
+    --dark-background-color: hsl(240, 31%, 58%);
+    --dragon-background-color: hsl(186, 52%, 68%);
+    --electric-background-color: hsl(62, 72%, 70%);
+    --fairy-background-color: hsl(332, 85%, 60%);
+    --fighting-background-color: hsl(15, 73%, 66%);
+    --fire-background-color: hsl(356, 93%, 72%);
+    --flying-background-color: hsl(202, 24%, 69%);
+    --ghost-background-color: hsl(298, 16%, 54%);
+    --grass-background-color: hsl(136, 64%, 54%);
+    --ground-background-color: hsl(30, 57%, 36%);
+    --ice-background-color: hsl(200, 64%, 86%);
+    --normal-background-color: hsl(345, 40%, 72%);
+    --poison-background-color: hsl(269, 64%, 67%);
+    --psychic-background-color: hsl(329, 74%, 57%);
+    --rock-background-color: hsl(17, 70%, 44%);
+    --steel-background-color: hsl(165, 53%, 60%);
+    --water-background-color: hsl(220, 64%, 79%);
+
+
+    --bug-round-box-color: rgb(0, 175, 0);
+    --dark-round-box-color: rgb(0, 0, 187);
+    --dragon-round-box-color: rgb(34, 193, 211);
+    --electric-round-box-color: rgb(217, 223, 60);
+    --fairy-round-box-color: rgb(235, 27, 124);
+    --fighting-round-box-color: rgb(226, 103, 62);
+    --fire-round-box-color: rgb(242, 45, 58);
+    --flying-round-box-color: rgb(129, 166, 187);
+    --ghost-round-box-color: rgb(150, 98, 152);
+    --grass-round-box-color: rgb(1, 74, 1);
+    --ground-round-box-color: rgb(135, 78, 17); 
+    --ice-round-box-color: rgb(153, 209, 237);
+    --normal-round-box-color: rgb(218, 114, 140);
+    --poison-round-box-color: rgb(145, 75, 220);
+    --psychic-round-box-color: rgb(214, 50, 122);
+    --rock-round-box-color: rgb(181, 60, 12);
+    --steel-round-box-color: rgb(77, 205, 173);
+    --water-round-box-color: rgb(69, 122, 228);
+}
+
+.bug-background {
+    background-color: var(--bug-background-color);
+}
+
+.bug-round-box {
+    background-color: var(--bug-round-box-color);
+}
+
+.dark-background {
+    background-color: var(--dark-background-color);
+}
+
+.dark-round-box {
+    background-color: var(--dark-round-box-color);
+}
+
+.dragon-background {
+    background-color: var(--dragon-background-color);
+}
+
+.dragon-round-box {
+    background-color: var(--dragon-round-box-color);
+}
+
+.electric-background {
+    background-color: var(--electric-background-color);
+    color: black;
+}
+
+.electric-round-box {
+    background-color: var(--electric-round-box-color);
+}
+
+.fairy-background {
+    background-color: var(--fairy-background-color);
+}
+
+.fairy-round-box {
+    background-color: var(--fairy-round-box-color);
+}
+
+.fighting-background {
+    background-color: var(--fighting-background-color);
+}
+
+.fighting-round-box {
+    background-color: var(--fighting-round-box-color);
+}
+
+.fire-background {
+    background-color: var(--fire-background-color);
+}
+
+.fire-round-box {
+    background-color: var(--fire-round-box-color);
+}
+
+.flying-background {
+    background-color: var(--flying-background-color);
+
+}
+
+.flying-round-box {
+    background-color: var(--flying-round-box-color);
+}
+
+.ghost-background {
+    background-color: var(--ghost-background-color);
+}
+
+.ghost-round-box {
+    background-color: var(--ghost-round-box-color);
+}
+
+.grass-background {
+    background-color: var(--grass-background-color);
+}
+
+.grass-round-box {
+    background-color: var(--grass-round-box-color);
+}
+
+.ground-background {
+    background-color: var(--ground-background-color);
+}
+
+.ground-round-box {
+    background-color: var(--ground-round-box-color);
+}
+
+.ice-background {
+    background-color: var(--ice-background-color);
+    color: black;
+}
+
+.ice-round-box {
+    background-color: var(--ice-round-box-color);
+}
+
+.normal-background {
+    background-color: var(--normal-background-color);
+}
+
+.normal-round-box {
+    background-color: var(--normal-round-box-color);
+}
+
+.poison-background {
+    background-color: var(--poison-background-color);
+}
+
+.poison-round-box {
+    background-color: var(--poison-round-box-color);
+}
+
+.psychic-background {
+    background-color: var(--psychic-background-color);
+}
+
+.psychic-round-box {
+    background-color: var(--psychic-round-box-color);
+}
+
+.rock-background {
+    background-color: var(--rock-background-color);
+}
+
+.rock-round-box {
+    background-color: var(--rock-round-box-color);
+}
+
+.steel-background {
+    background-color: var(--steel-background-color);
+}
+
+.steel-round-box {
+    background-color: var(--steel-round-box-color);
+}
+
+.water-background {
+    background-color: var(--water-background-color);
+}
+
+.water-round-box {
+    background-color: var(--water-round-box-color);
+}
