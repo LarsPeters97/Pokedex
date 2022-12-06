@@ -106,6 +106,8 @@ header span a img {
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-right: 8px;
+    margin-left: 8px;
 }
 
 .types-and-images {
@@ -305,7 +307,7 @@ header span a img {
 
 /* loader */
 
-.center {
+.loading-animation {
     z-index: 999;
     top: 0%;
     right: 0%;

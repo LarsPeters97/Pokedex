@@ -3,10 +3,12 @@ let loadedPokemons = [];
 let currentPokemon = 0;
 let numberOfAllPokemons;
 let currentPokemonSection = 'about';
+let dataForSections = [];
 
 
 function init() {
-    loadNextPokemons();
+    loadingProcess();
+    console.log(dataForSections);
 }
 
 
@@ -18,24 +20,85 @@ async function loadNextPokemons() {
 
         for (let index = 0; index < responseAsJSON.results.length; index++) {
             let pokemonResponse = await fetch(responseAsJSON.results[index].url);
-            let pokemonASJSON = await pokemonResponse.json();
+            let pokemonAsJson = await pokemonResponse.json();
             numberOfAllPokemons = responseAsJSON.count;
-            loadedPokemons.push(pokemonASJSON);
+            loadedPokemons.push(pokemonAsJson);
         }
         renderAllPokemons();
     }
 }
 
 
-// function loadingProcess() {
+async function loadDataForSections(pokemonIndex) {
+    await loadDataForSpecies(pokemonIndex);
+}
+
+
+async function loadDataForSpecies(pokemonIndex) {
+    let speciesURL = loadedPokemons[pokemonIndex].species.url;
+    let speciesResponse = await fetch(speciesURL);
+    let speciesAsJson = await speciesResponse.json();
+
+    let evolutionChainURL = speciesAsJson.evolution_chain.url;
+    let evolutionChainResponse = await fetch(evolutionChainURL);
+    let evolutionChainAsJson = await evolutionChainResponse.json();
+
+    jsonsForVariables(speciesAsJson, evolutionChainAsJson);
+}
+
+
+function jsonsForVariables(speciesAsJson, evolutionChainAsJson) {
+    let genus = speciesAsJson.genera[7].genus;
+    let descriptionTextForPokemon = speciesAsJson.flavor_text_entries[3].flavor_text;
+    let evolutionChain = evolutionChainAsJson.chain;
     
-// }
+    dataForSections.push({genu: genus, description: descriptionTextForPokemon, evolution: evolutionChain});
+}
+
+
+function showLoadingAnimation() {
+    document.getElementById('loading-animation').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+
+function closeLoadingAnimation() {
+    document.getElementById('loading-animation').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+
+async function delayCloseLoadingAnimation() {
+    if (loadedPokemons.length > 240) {
+        await delay(3000);
+    }
+    if (loadedPokemons.length > 100) {
+        await delay(1750);
+    }
+}
+
+
+function delay(milliseconds) {
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+
+}
+
+
+async function loadingProcess() {
+    showLoadingAnimation();
+    await loadNextPokemons();
+    await delayCloseLoadingAnimation();
+    closeLoadingAnimation();
+}
 
 
 
 function renderAllPokemons() {
     let smallPokemonContainersArea = document.getElementById('small-pokemon-containers');
     for (let i = currentPokemon; i < loadedPokemons.length; i++) {
+        loadDataForSections(i);
         smallPokemonContainersArea.innerHTML += templateRenderSmallPokemonCards(i);
         renderPokemonName(i);
         renderPokemonTypes(i);
@@ -101,7 +164,7 @@ window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
 
     if (Math.ceil(scrolled) === scrollable) {
-        loadNextPokemons();
+        loadingProcess();
     }
 });
 
@@ -118,6 +181,7 @@ function detailedPokemonPopup(pokemonIndex) {
     checkScrollability();
     checkCurrentPokemonSection();
     checkFirstPokemon(pokemonIndex);
+    aboutCurrentPokemon(pokemonIndex);
 }
 
 
@@ -151,17 +215,18 @@ function checkScrollability() {
 }
 
 
-function aboutCurretPokemon(pokemonIndex) {
+function aboutCurrentPokemon(pokemonIndex) {
     let pageMask = document.getElementById('page-mask');
-    pageMask.innerHTML = '';
+    let pokemonDescription = dataForSections[pokemonIndex].description;
     let pokemonHeight = getPokemonHeight(pokemonIndex);
-    pageMask.innerHTML = templateAboutCurretPokemon(pokemonHeight);
+    pageMask.innerHTML = templateAboutCurrentPokemon(pokemonDescription, pokemonHeight);
 }
 
 
 function getPokemonHeight(pokemonIndex) {
     return loadedPokemons[pokemonIndex]['height'];
 }
+
 
 function checkCurrentPokemonSection() {
     navbar = document.querySelector('.pokemon-sections').querySelectorAll('li');
@@ -176,24 +241,19 @@ function checkCurrentPokemonSection() {
 }
 
 
-function selectedDetailedPokemonSection() {
-    console.log('About');
-}
-
-
 async function showNextDetailedPokemon(pokemonIndex) {
-    if(pokemonIndex == numberOfAllPokemons) {
+    if (pokemonIndex == numberOfAllPokemons) {
         pokemonIndex = 0;
         nextPokemon(pokemonIndex);
     }
     else {
-    if (pokemonIndex + 1 == loadedPokemons.length) {
-        await loadNextPokemons();
-        nextPokemon(pokemonIndex);
+        if (pokemonIndex + 1 == loadedPokemons.length) {
+            await loadingProcess();
+            nextPokemon(pokemonIndex);
+        }
+        else
+            nextPokemon(pokemonIndex);
     }
-    else 
-        nextPokemon(pokemonIndex);
-}
 }
 
 

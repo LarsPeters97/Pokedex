@@ -39,7 +39,7 @@ function templateDetailedPokemonPopup(pokemonIndex, bigPokemonName, backgroundCo
                 </div>
                 <div class="pokemon-sections">
                     <ul>
-                        <li class="active"><a href="#about">About</li>
+                        <li class="active" onclick="aboutCurrentPokemon(${pokemonIndex})"><a href="#about">About</li>
                         <li><a href="#stats">Stats</li>
                         <li><a href="#evolution">Evolution</li>
                         <li><a href="#moves">Moves</li>
@@ -53,9 +53,10 @@ function templateDetailedPokemonPopup(pokemonIndex, bigPokemonName, backgroundCo
 }
 
 
-function templateAboutCurretPokemon(pokemonHeight) {
+function templateAboutCurrentPokemon(pokemonDescription, pokemonHeight) {
     return /*html*/`
     <div>
+        <span>${pokemonDescription}</span>
         <span>${pokemonHeight}</span>
     </div>`
 }
