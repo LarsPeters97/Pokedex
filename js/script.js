@@ -169,6 +169,7 @@ window.addEventListener('scroll', () => {
 function detailedPokemonPopup(pokemonIndex) {
     let popup = document.getElementById('popup');
     popup.innerHTML = '';
+    loadDataForSections(pokemonIndex);
     let bigPokemonName = getPokemonName(pokemonIndex);
     let backgroundColor = getBackgroundColor(pokemonIndex);
     let bigPokemonImage = getPokemonImage(pokemonIndex);
