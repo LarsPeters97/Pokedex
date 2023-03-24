@@ -1,0 +1,52 @@
+.impressum-container {
+    background-color: var(--bg-color-main);
+    display: flex;
+    align-items: flex-start;
+    height: 97vh;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+}
+
+.impressum {
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.privacy-container {
+    background-color: var(--bg-color-main);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.privacy {
+    margin: 40px 16px 60px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.privacy a {
+    word-break: break-all;
+}
+
+@media(max-width: 400px) {
+    .link-icons {
+        width: 280px;
+    }
+
+    .privacy {
+        margin: 32px 8px 60px 8px;
+    }
+
+    .privacy h2 {
+        font-size: 20px;
+    }
+
+    .impressum {
+        margin-top: 32px;
+        margin-left: 8px;
+    }
+}
